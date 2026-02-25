@@ -2,64 +2,93 @@ import Image from "next/image";
 
 export default function Home() {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
+    <main className="bg-[#0B1426] text-white font-sans">
+
+      {/* HERO */}
+      <section className="min-h-screen flex flex-col justify-center items-center text-center px-6">
+        <h1 className="text-5xl font-bold mb-6">
+          Get Funded. Trade Smart. <span className="text-[#D4AF37]">Keep 70%</span>
+        </h1>
+        <p className="max-w-xl text-gray-300 mb-8">
+          Choose your challenge. Prove your edge. Scale up to $100,000 in capital.
+        </p>
+        <div className="flex gap-4">
+          <button className="bg-[#D4AF37] text-black px-6 py-3 rounded-lg font-semibold hover:opacity-90">
+            Start Challenge
+          </button>
+          <button className="border border-[#D4AF37] px-6 py-3 rounded-lg hover:bg-[#D4AF37] hover:text-black transition">
+            View Pricing
+          </button>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-40"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/8 px-5 transition-colors hover:border-transparent hover:bg-black/4 dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-40"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+      </section>
+
+      {/* ACCOUNT PRICING */}
+      <section className="py-20 bg-black">
+        <h2 className="text-4xl text-center font-bold mb-12">
+          Funding Programs
+        </h2>
+
+        <div className="grid md:grid-cols-3 gap-8 px-10">
+
+          {[
+            { size: "$2,000", price: "$8.99" },
+            { size: "$5,000", price: "$39" },
+            { size: "$7,000", price: "$55" },
+            { size: "$10,000", price: "$79" },
+            { size: "$25,000", price: "$179" },
+            { size: "$50,000", price: "$289" },
+            { size: "$100,000", price: "$370" },
+          ].map((plan, index) => (
+            <div key={index} className="bg-[#0B1426] p-6 rounded-xl border border-gray-800 hover:border-[#D4AF37] transition">
+              <h3 className="text-2xl font-bold mb-4">{plan.size}</h3>
+              <p className="text-[#D4AF37] text-xl mb-4">{plan.price}</p>
+              <ul className="text-gray-300 mb-6 space-y-2">
+                <li>70% Profit Split</li>
+                <li>5% Daily Drawdown</li>
+                <li>10% Max Drawdown</li>
+                <li>No Time Limit</li>
+              </ul>
+              <button className="w-full bg-[#D4AF37] text-black py-2 rounded-lg font-semibold">
+                Get Started
+              </button>
+            </div>
+          ))}
+
         </div>
-      </main>
-    </div>
+      </section>
+
+      {/* CHALLENGE TYPES */}
+      <section className="py-20 bg-[#0B1426]">
+        <h2 className="text-4xl text-center font-bold mb-12">
+          Choose Your Path
+        </h2>
+
+        <div className="grid md:grid-cols-3 gap-8 px-10">
+
+          <div className="bg-black p-8 rounded-xl border border-gray-800">
+            <h3 className="text-2xl font-bold mb-4 text-[#D4AF37]">1-Step</h3>
+            <p>10% Target</p>
+            <p>5% Daily Loss</p>
+            <p>10% Max Loss</p>
+          </div>
+
+          <div className="bg-black p-8 rounded-xl border border-gray-800">
+            <h3 className="text-2xl font-bold mb-4 text-[#D4AF37]">2-Step</h3>
+            <p>8% → 5% Targets</p>
+            <p>5% Daily Loss</p>
+            <p>10% Max Loss</p>
+          </div>
+
+          <div className="bg-black p-8 rounded-xl border border-gray-800">
+            <h3 className="text-2xl font-bold mb-4 text-[#D4AF37]">3-Step</h3>
+            <p>6% → 5% → 4%</p>
+            <p>5% Daily Loss</p>
+            <p>10% Max Loss</p>
+          </div>
+
+        </div>
+      </section>
+
+    </main>
   );
 }
